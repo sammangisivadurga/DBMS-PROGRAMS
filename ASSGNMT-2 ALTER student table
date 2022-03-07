@@ -1,0 +1,15 @@
+SQL> ALTER TABLE student ADD(Total int,Avg float);
+
+Table altered.
+
+SQL> desc student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SNO                                                NUMBER(38)
+ SNAME                                              VARCHAR2(20)
+ SGROUP                                             VARCHAR2(10)
+ MATHS                                              NUMBER(4)
+ PHY                                                NUMBER(4)
+ COMPUTERS                                          NUMBER(4)
+ TOTAL                                              NUMBER(38)
+ AVG                                                FLOAT(126)
