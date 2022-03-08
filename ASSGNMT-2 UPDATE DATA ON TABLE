@@ -1,0 +1,57 @@
+SQL> update student set total=maths+phy+computers,avg=(maths+phy+computers)/3;
+
+10 rows updated.
+
+SQL> select * from student;
+
+       SNO SNAME                SGROUP          MATHS        PHY  COMPUTERS
+---------- -------------------- ---------- ---------- ---------- ----------
+     TOTAL        AVG
+---------- ----------
+         1 siva                 cse                90         60         80
+       230 76.6666667
+
+         2 durga                mscs               70         80         90
+       240         80
+
+         4 yashika              mecs               60         50         70
+       180         60
+
+
+       SNO SNAME                SGROUP          MATHS        PHY  COMPUTERS
+---------- -------------------- ---------- ---------- ---------- ----------
+     TOTAL        AVG
+---------- ----------
+         3 sai                  mpcs               70         50         60
+       180         60
+
+         5 khavinya             bca                60         70         80
+       210         70
+
+         6 sree                 dscs               70         80         80
+       230 76.6666667
+
+
+       SNO SNAME                SGROUP          MATHS        PHY  COMPUTERS
+---------- -------------------- ---------- ---------- ---------- ----------
+     TOTAL        AVG
+---------- ----------
+         7 kavya                mscs               70         80         70
+       220 73.3333333
+
+         8 srinu                mecs               60         70         80
+       210         70
+
+         9 lakshmi              mpcs               50         60         70
+       180         60
+
+
+       SNO SNAME                SGROUP          MATHS        PHY  COMPUTERS
+---------- -------------------- ---------- ---------- ---------- ----------
+     TOTAL        AVG
+---------- ----------
+        10 ramana               bca                70         90         80
+       240         80
+
+
+10 rows selected.
