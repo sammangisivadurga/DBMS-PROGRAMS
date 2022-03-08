@@ -1,0 +1,199 @@
+SQL> insert into student values(&sno,'&sname','&sgroup',&maths,&phy,&computers,&total,&avg);
+Enter value for sno: 1
+Enter value for sname: siva
+Enter value for sgroup: cse
+Enter value for maths: 90
+Enter value for phy: 60
+Enter value for computers: 80
+Enter value for total: 0
+Enter value for avg: 0
+old   1: insert into student values(&sno,'&sname','&sgroup',&maths,&phy,&computers,&total,&avg)
+new   1: insert into student values(1,'siva','cse',90,60,80,0,0)
+
+1 row created.
+
+SQL> /
+Enter value for sno: 2
+Enter value for sname: durga
+Enter value for sgroup: mscs
+Enter value for maths: 70
+Enter value for phy: 80
+Enter value for computers: 90
+Enter value for total: 0
+Enter value for avg: 0
+old   1: insert into student values(&sno,'&sname','&sgroup',&maths,&phy,&computers,&total,&avg)
+new   1: insert into student values(2,'durga','mscs',70,80,90,0,0)
+
+1 row created.
+
+SQL> /
+Enter value for sno: 4
+Enter value for sname: yashika
+Enter value for sgroup: mecs
+Enter value for maths: 60
+Enter value for phy: 50
+Enter value for computers: 70
+Enter value for total: 0
+Enter value for avg: 0
+old   1: insert into student values(&sno,'&sname','&sgroup',&maths,&phy,&computers,&total,&avg)
+new   1: insert into student values(4,'yashika','mecs',60,50,70,0,0)
+
+1 row created.
+
+SQL> /
+Enter value for sno: 3
+Enter value for sname: sai
+Enter value for sgroup: mpcs
+Enter value for maths: 70
+Enter value for phy: 50
+Enter value for computers: 60
+Enter value for total: 0
+Enter value for avg: 0
+old   1: insert into student values(&sno,'&sname','&sgroup',&maths,&phy,&computers,&total,&avg)
+new   1: insert into student values(3,'sai','mpcs',70,50,60,0,0)
+
+1 row created.
+
+SQL> /
+Enter value for sno: 5
+Enter value for sname: khavinya
+Enter value for sgroup: bca
+Enter value for maths: 60
+Enter value for phy: 70
+Enter value for computers: 80
+Enter value for total: 0
+Enter value for avg: 0
+old   1: insert into student values(&sno,'&sname','&sgroup',&maths,&phy,&computers,&total,&avg)
+new   1: insert into student values(5,'khavinya','bca',60,70,80,0,0)
+
+1 row created.
+
+SQL> 6
+SP2-0226: Invalid line number
+SQL> /
+Enter value for sno: 6
+Enter value for sname: sree
+Enter value for sgroup: dscs
+Enter value for maths: 70
+Enter value for phy: 80
+Enter value for computers: 80
+Enter value for total: 0
+Enter value for avg: 0
+old   1: insert into student values(&sno,'&sname','&sgroup',&maths,&phy,&computers,&total,&avg)
+new   1: insert into student values(6,'sree','dscs',70,80,80,0,0)
+
+1 row created.
+
+SQL> /
+Enter value for sno: 7
+Enter value for sname: kavya
+Enter value for sgroup: mscs
+Enter value for maths: 70
+Enter value for phy: 80
+Enter value for computers: 70
+Enter value for total: 0
+Enter value for avg: 0
+old   1: insert into student values(&sno,'&sname','&sgroup',&maths,&phy,&computers,&total,&avg)
+new   1: insert into student values(7,'kavya','mscs',70,80,70,0,0)
+
+1 row created.
+
+SQL> /
+Enter value for sno: 8
+Enter value for sname: srinu
+Enter value for sgroup: mecs
+Enter value for maths: 60
+Enter value for phy: 70
+Enter value for computers: 80
+Enter value for total: 0
+Enter value for avg: 0
+old   1: insert into student values(&sno,'&sname','&sgroup',&maths,&phy,&computers,&total,&avg)
+new   1: insert into student values(8,'srinu','mecs',60,70,80,0,0)
+
+1 row created.
+
+SQL> 9
+SP2-0226: Invalid line number
+SQL> /
+Enter value for sno: 9
+Enter value for sname: lakshmi
+Enter value for sgroup: mpcs
+Enter value for maths: 50
+Enter value for phy: 60
+Enter value for computers: 70
+Enter value for total: 0
+Enter value for avg: 0
+old   1: insert into student values(&sno,'&sname','&sgroup',&maths,&phy,&computers,&total,&avg)
+new   1: insert into student values(9,'lakshmi','mpcs',50,60,70,0,0)
+
+1 row created.
+
+SQL> 10
+SP2-0226: Invalid line number
+SQL> /
+Enter value for sno: 10
+Enter value for sname: ramana
+Enter value for sgroup: bca
+Enter value for maths: 70
+Enter value for phy: 90
+Enter value for computers: 80
+Enter value for total: 0
+Enter value for avg: 0
+old   1: insert into student values(&sno,'&sname','&sgroup',&maths,&phy,&computers,&total,&avg)
+new   1: insert into student values(10,'ramana','bca',70,90,80,0,0)
+
+1 row created.
+
+SQL> select * from student;
+
+       SNO SNAME                SGROUP          MATHS        PHY  COMPUTERS
+---------- -------------------- ---------- ---------- ---------- ----------
+     TOTAL        AVG
+---------- ----------
+         1 siva                 cse                90         60         80
+         0          0
+
+         2 durga                mscs               70         80         90
+         0          0
+
+         4 yashika              mecs               60         50         70
+         0          0
+
+
+       SNO SNAME                SGROUP          MATHS        PHY  COMPUTERS
+---------- -------------------- ---------- ---------- ---------- ----------
+     TOTAL        AVG
+---------- ----------
+         3 sai                  mpcs               70         50         60
+         0          0
+
+         5 khavinya             bca                60         70         80
+         0          0
+
+         6 sree                 dscs               70         80         80
+         0          0
+
+
+       SNO SNAME                SGROUP          MATHS        PHY  COMPUTERS
+---------- -------------------- ---------- ---------- ---------- ----------
+     TOTAL        AVG
+---------- ----------
+         7 kavya                mscs               70         80         70
+         0          0
+
+         8 srinu                mecs               60         70         80
+         0          0
+
+         9 lakshmi              mpcs               50         60         70
+         0          0
+
+
+       SNO SNAME                SGROUP          MATHS        PHY  COMPUTERS
+---------- -------------------- ---------- ---------- ---------- ----------
+     TOTAL        AVG
+---------- ----------
+        10 ramana               bca                70         90         80
+         0          0
+
+
+10 rows selected.
