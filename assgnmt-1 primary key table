@@ -1,0 +1,76 @@
+SQL> create table university(regid number(15) primary key,studentname varchar2(10),gender varchar(6),year number(5),collegename varchar(25));
+
+Table created.
+
+SQL> desc university;
+ Name                                                  Null?    Type
+ ----------------------------------------------------- -------- ------------------------------------
+ REGID                                                 NOT NULL NUMBER(15)
+ STUDENTNAME                                                    VARCHAR2(10)
+ GENDER                                                         VARCHAR2(6)
+ YEAR                                                           NUMBER(5)
+ COLLEGENAME                                                    VARCHAR2(25)
+SQL> insert into university values(&regid,'&studentname','&gender',&year,'&collegename');
+Enter value for regid: 202101
+Enter value for studentname: durga
+Enter value for gender: female
+Enter value for year: 3
+Enter value for collegename: aditya
+old   1: insert into university values(&regid,'&studentname','&gender',&year,'&collegename')
+new   1: insert into university values(202101,'durga','female',3,'aditya')
+
+1 row created.
+
+SQL> /
+Enter value for regid: 202102
+Enter value for studentname: siva
+Enter value for gender: male
+Enter value for year: 2
+Enter value for collegename: aditya
+old   1: insert into university values(&regid,'&studentname','&gender',&year,'&collegename')
+new   1: insert into university values(202102,'siva','male',2,'aditya')
+
+1 row created.
+
+SQL> /
+Enter value for regid: 202103
+Enter value for studentname: yashika
+Enter value for gender: female
+Enter value for year: 1
+Enter value for collegename: aditya
+old   1: insert into university values(&regid,'&studentname','&gender',&year,'&collegename')
+new   1: insert into university values(202103,'yashika','female',1,'aditya')
+
+1 row created.
+
+SQL> /
+Enter value for regid: 202104
+Enter value for studentname: sree
+Enter value for gender: female
+Enter value for year: 3
+Enter value for collegename: aditya
+old   1: insert into university values(&regid,'&studentname','&gender',&year,'&collegename')
+new   1: insert into university values(202104,'sree','female',3,'aditya')
+
+1 row created.
+
+SQL> /
+Enter value for regid: 202105
+Enter value for studentname: satish
+Enter value for gender: male
+Enter value for year: 3
+Enter value for collegename: aditya
+old   1: insert into university values(&regid,'&studentname','&gender',&year,'&collegename')
+new   1: insert into university values(202105,'satish','male',3,'aditya')
+
+1 row created.
+
+SQL> select *from university;
+
+     REGID STUDENTNAM GENDER       YEAR COLLEGENAME
+---------- ---------- ------ ---------- -------------------------
+    202101 durga      female          3 aditya
+    202102 siva       male            2 aditya
+    202103 yashika    female          1 aditya
+    202104 sree       female          3 aditya
+    202105 satish     male            3 aditya
