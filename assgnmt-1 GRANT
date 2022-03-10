@@ -1,0 +1,7 @@
+SQL>  create table employee(eno number(10),ename varchar(20),design varchar(20),salary number(9));
+
+Table created.
+
+SQL>  grant all on employee to adc2;
+
+Grant succeeded.
