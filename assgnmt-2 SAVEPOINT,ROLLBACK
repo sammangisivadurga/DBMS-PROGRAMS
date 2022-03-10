@@ -1,0 +1,76 @@
+SQL> CONNECT ADC2/ADC2;
+Connected.
+SQL> SELECT * FROM ADC1.EMPLOYEE;
+
+       ENO ENAME                DESIGN                   SALARY
+---------- -------------------- -------------------- ----------
+       101 durga                software                  25000
+       102 yashika              manager                   30000
+       103 satish               pa                        20000
+       104 sree                 bpo                       19000
+       105 siva                 bpo                       20000
+       106 siri                 software                  20000
+       107 RAHUL                MANAGER                   15000
+       108 RAMA                 BPO                       20000
+SQL> insert into adc1.employee values(&eno,'&ename','&design',&salary);
+Enter value for eno: 109
+Enter value for ename: UMA
+Enter value for design: PA
+Enter value for salary: 17000
+old   1: insert into adc1.employee values(&eno,'&ename','&design',&salary)
+new   1: insert into adc1.employee values(109,'UMA','PA',17000)
+
+1 row created.
+SQL> SAVEPOINT X;
+
+Savepoint created.
+
+SQL> insert into adc1.employee values(&eno,'&ename','&design',&salary);
+Enter value for eno: 110
+Enter value for ename: SAI
+Enter value for design: SOFTWARE
+Enter value for salary: 20000
+old   1: insert into adc1.employee values(&eno,'&ename','&design',&salary)
+new   1: insert into adc1.employee values(110,'SAI','SOFTWARE',20000)
+
+1 row created.
+
+SQL> SAVEPOINT Y;
+
+Savepoint created.
+SQL> SELECT * FROM ADC1.EMPLOYEE;
+
+       ENO ENAME                DESIGN                   SALARY
+---------- -------------------- -------------------- ----------
+       101 durga                software                  25000
+       102 yashika              manager                   30000
+       103 satish               pa                        20000
+       104 sree                 bpo                       19000
+       105 siva                 bpo                       20000
+       106 siri                 software                  20000
+       107 RAHUL                MANAGER                   15000
+       108 RAMA                 BPO                       20000
+       109 UMA                  PA                        17000
+       110 SAI                  SOFTWARE                  20000
+
+10 rows selected.
+
+SQL> ROLLBACK TO X;
+
+Rollback complete.
+
+SQL> SELECT * FROM ADC1.EMPLOYEE;
+
+       ENO ENAME                DESIGN                   SALARY
+---------- -------------------- -------------------- ----------
+       101 durga                software                  25000
+       102 yashika              manager                   30000
+       103 satish               pa                        20000
+       104 sree                 bpo                       19000
+       105 siva                 bpo                       20000
+       106 siri                 software                  20000
+       107 RAHUL                MANAGER                   15000
+       108 RAMA                 BPO                       20000
+       109 UMA                  PA                        17000
+
+9 rows selected.
