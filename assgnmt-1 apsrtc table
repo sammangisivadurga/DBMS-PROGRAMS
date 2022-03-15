@@ -1,0 +1,40 @@
+SQL> create table apsrtc(service_no number(10) primary key,service_type varchar2(10),pfrom varchar(15),pto varchar(15),kms number(5),ticket_price number(10));
+
+Table created.
+
+SQL> desc apsrtc;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SERVICE_NO                                NOT NULL NUMBER(10)
+ SERVICE_TYPE                                       VARCHAR2(10)
+ PFROM                                              VARCHAR2(15)
+ PTO                                                VARCHAR2(15)
+ KMS                                                NUMBER(5)
+ TICKET_PRICE                                       NUMBER(10)
+ SQL> insert into apsrtc values(&service_no,'&service_type','&pfrom','&pto',&kms,&ticket_price);
+Enter value for service_no: 2021
+Enter value for service_type: luxury
+Enter value for pfrom: kkd
+Enter value for pto: hyd
+Enter value for kms: 500
+Enter value for ticket_price: 2000
+old   1: insert into apsrtc values(&service_no,'&service_type','&pfrom','&pto',&kms,&ticket_price)
+new   1: insert into apsrtc values(2021,'luxury','kkd','hyd',500,2000)
+
+1 row created.
+SQL> select *from apsrtc;
+
+SERVICE_NO SERVICE_TY PFROM           PTO                    KMS TICKET_PRICE
+---------- ---------- --------------- --------------- ---------- ------------
+      2021 luxury     kkd             hyd                    500         2000
+      2022 passenger  vzwd            hyd                    250          600
+      2023 express    hyd             kkd                    500         1000
+      2024 passenger  kkd             amp                     90          500
+      2025 express    kkd             skl                    300          700
+      2026 passenger  rjy             kkd                     80          500
+      2027 luxury     rcpuram         rjy                     60          600
+      2028 express    vskp            kkd                    400          650
+      2029 passenger  vskp            hyd                    300          700
+      2030 luxury     hyd             rjy                    400          800
+
+10 rows selected.
