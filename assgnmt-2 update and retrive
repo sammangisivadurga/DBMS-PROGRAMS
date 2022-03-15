@@ -1,0 +1,69 @@
+SQL> select *from apsrtc;
+
+SERVICE_NO SERVICE_TY PFROM           PTO                    KMS TICKET_PRICE
+---------- ---------- --------------- --------------- ---------- ------------
+      2021 luxury     kkd             hyd                    500         2000
+      2022 passenger  vzwd            hyd                    250          600
+      2023 express    hyd             kkd                    500         1000
+      2024 passenger  kkd             amp                     90          500
+      2025 express    kkd             skl                    300          700
+      2026 passenger  rjy             kkd                     80          500
+      2027 luxury     rcpuram         rjy                     60          600
+      2028 express    vskp            kkd                    400          650
+      2029 passenger  vskp            hyd                    300          700
+      2030 luxury     hyd             rjy                    400          800
+
+10 rows selected.
+
+SQL> insert into apsrtc values(2031,'pasenger','kkd','viskp',600,500);
+
+1 row created.
+
+SQL> update apsrtc set ticket_price=ticket_price+100 where kms > 500;
+
+1 row updated.
+
+SQL> select *from apsrtc;
+
+SERVICE_NO SERVICE_TY PFROM           PTO                    KMS TICKET_PRICE
+---------- ---------- --------------- --------------- ---------- ------------
+      2021 luxury     kkd             hyd                    500         2000
+      2022 passenger  vzwd            hyd                    250          600
+      2023 express    hyd             kkd                    500         1000
+      2024 passenger  kkd             amp                     90          500
+      2025 express    kkd             skl                    300          700
+      2026 passenger  rjy             kkd                     80          500
+      2027 luxury     rcpuram         rjy                     60          600
+      2028 express    vskp            kkd                    400          650
+      2029 passenger  vskp            hyd                    300          700
+      2030 luxury     hyd             rjy                    400          800
+      2031 pasenger   kkd             viskp                  600          600
+
+11 rows selected.
+
+SQL> update apsrtc set ticket_price=ticket_price-50 where kms < 500;
+
+8 rows updated.
+
+SQL> select *from apsrtc;
+
+SERVICE_NO SERVICE_TY PFROM           PTO                    KMS TICKET_PRICE
+---------- ---------- --------------- --------------- ---------- ------------
+      2021 luxury     kkd             hyd                    500         2000
+      2022 passenger  vzwd            hyd                    250          550
+      2023 express    hyd             kkd                    500         1000
+      2024 passenger  kkd             amp                     90          450
+      2025 express    kkd             skl                    300          650
+      2026 passenger  rjy             kkd                     80          450
+      2027 luxury     rcpuram         rjy                     60          550
+      2028 express    vskp            kkd                    400          600
+      2029 passenger  vskp            hyd                    300          650
+      2030 luxury     hyd             rjy                    400          750
+      2031 pasenger   kkd             viskp                  600          600
+
+11 rows selected.
+SQL>  select * from apsrtc where pfrom='vskp' and pto='hyd';
+
+SERVICE_NO SERVICE_TY PFROM           PTO                    KMS TICKET_PRICE
+---------- ---------- --------------- --------------- ---------- ------------
+      2029 passenger  vskp            hyd                    300          650
