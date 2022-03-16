@@ -1,0 +1,119 @@
+SQL> create table restraunt(billid int,custname varchar2(25),phno number(10),amount number(10));
+
+Table created.
+
+SQL> create sequence awdc
+  2  start with 100001
+  3  increment by 1
+  4  minvalue 100001
+  5  maxvalue 100900
+  6  cycle;
+
+Sequence created.
+
+SQL> insert into restraunt(billid,custname,phno,amount)values(awdc.nextval,'&custname',&phno,&amount);
+Enter value for custname: durga
+Enter value for phno: 9010948263
+Enter value for amount: 350
+old   1: insert into restraunt(billid,custname,phno,amount)values(awdc.nextval,'&custname',&phno,&amount)
+new   1: insert into restraunt(billid,custname,phno,amount)values(awdc.nextval,'durga',9010948263,350)
+
+1 row created.
+
+SQL> /
+Enter value for custname: janu
+Enter value for phno: 9177075770
+Enter value for amount: 500
+old   1: insert into restraunt(billid,custname,phno,amount)values(awdc.nextval,'&custname',&phno,&amount)
+new   1: insert into restraunt(billid,custname,phno,amount)values(awdc.nextval,'janu',9177075770,500)
+
+1 row created.
+
+SQL> /
+Enter value for custname: siva
+Enter value for phno: 9010735578
+Enter value for amount: 400
+old   1: insert into restraunt(billid,custname,phno,amount)values(awdc.nextval,'&custname',&phno,&amount)
+new   1: insert into restraunt(billid,custname,phno,amount)values(awdc.nextval,'siva',9010735578,400)
+
+1 row created.
+
+SQL> /
+Enter value for custname: jaya
+Enter value for phno: 9505466306
+Enter value for amount: 600
+old   1: insert into restraunt(billid,custname,phno,amount)values(awdc.nextval,'&custname',&phno,&amount)
+new   1: insert into restraunt(billid,custname,phno,amount)values(awdc.nextval,'jaya',9505466306,600)
+
+1 row created.
+
+SQL> /
+Enter value for custname: jeevan
+Enter value for phno: 9000951699
+Enter value for amount: 250
+old   1: insert into restraunt(billid,custname,phno,amount)values(awdc.nextval,'&custname',&phno,&amount)
+new   1: insert into restraunt(billid,custname,phno,amount)values(awdc.nextval,'jeevan',9000951699,250)
+
+1 row created.
+
+SQL> /
+Enter value for custname: satish
+Enter value for phno: 8305233123
+Enter value for amount: 450
+old   1: insert into restraunt(billid,custname,phno,amount)values(awdc.nextval,'&custname',&phno,&amount)
+new   1: insert into restraunt(billid,custname,phno,amount)values(awdc.nextval,'satish',8305233123,450)
+
+1 row created.
+
+SQL> /
+Enter value for custname: iswarya
+Enter value for phno: 8309520322
+Enter value for amount: 180
+old   1: insert into restraunt(billid,custname,phno,amount)values(awdc.nextval,'&custname',&phno,&amount)
+new   1: insert into restraunt(billid,custname,phno,amount)values(awdc.nextval,'iswarya',8309520322,180)
+
+1 row created.
+
+SQL> /
+Enter value for custname: khavinya
+Enter value for phno: 9989250908
+Enter value for amount: 800
+old   1: insert into restraunt(billid,custname,phno,amount)values(awdc.nextval,'&custname',&phno,&amount)
+new   1: insert into restraunt(billid,custname,phno,amount)values(awdc.nextval,'khavinya',9989250908,800)
+
+1 row created.
+
+SQL> /
+Enter value for custname: lakshmi
+Enter value for phno: 9000951236
+Enter value for amount: 700
+old   1: insert into restraunt(billid,custname,phno,amount)values(awdc.nextval,'&custname',&phno,&amount)
+new   1: insert into restraunt(billid,custname,phno,amount)values(awdc.nextval,'lakshmi',9000951236,700)
+
+1 row created.
+
+SQL> /
+Enter value for custname: srinu
+Enter value for phno: 6305578934
+Enter value for amount: 690
+old   1: insert into restraunt(billid,custname,phno,amount)values(awdc.nextval,'&custname',&phno,&amount)
+new   1: insert into restraunt(billid,custname,phno,amount)values(awdc.nextval,'srinu',6305578934,690)
+
+1 row created.
+
+SQL> select *from restraunt;
+
+    BILLID CUSTNAME                        PHNO     AMOUNT
+---------- ------------------------- ---------- ----------
+    100001 durga                     9010948263        350
+    100002 janu                      9177075770        500
+    100003 siva                      9010735578        400
+    100004 jaya                      9505466306        600
+    100005 jeevan                    9000951699        250
+    100006 satish                    8305233123        450
+    100007 iswarya                   8309520322        180
+    100008 khavinya                  9989250908        800
+    100009 lakshmi                   9000951236        700
+    100010 srinu                     6305578934        690
+
+10 rows selected.
