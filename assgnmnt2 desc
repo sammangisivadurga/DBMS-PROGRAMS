@@ -1,0 +1,23 @@
+SQL> select *from restraunt where custname like 'j%';
+
+    BILLID     CUSTNAME        PHNO                AMOUNT
+---------- ------------------------- ---------- ----------
+    100002    janu                9177075770        500
+    100004    jaya                9505466306        600
+    100005    jeevan              9000951699        250
+
+SQL> select *from restraunt order by custname desc;
+
+    BILLID  CUSTNAME       PHNO             AMOUNT
+---------- ------------------------- ---------- ----------
+  100010 srinu            6305578934        690
+  100003 siva             9010735578        400
+  100006 satish           8305233123        450
+  100009 lakshmi          9000951236        700
+  100008 khavinya         9989250908        800
+  100005 jeevan           9000951699        250
+  100004 jaya             9505466306        600
+  100002 janu             9177075770        500
+  100007 iswarya          8309520322        180
+  100001 durga            9010948263        350
+      
