@@ -1,0 +1,100 @@
+SQL> create table sstudent(regno number(4) primary key,sname varchar2(30),grp varchar2(10),emailid varchar2(30),phno number(10));
+
+Table created.
+
+SQL>
+SQL> desc sstudent;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                     NOT NULL NUMBER(4)
+ SNAME                                              VARCHAR2(30)
+ GRP                                                VARCHAR2(10)
+ EMAILID                                            VARCHAR2(30)
+ PHNO                                               NUMBER(10)
+
+SQL> create table exam(regno number(4) references sstudent(regno),s1 number(3),s2 number(3),s3 number(3),total number(5),avg number(5,2));
+
+Table created.
+
+SQL> desc exam;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                              NUMBER(4)
+ S1                                                 NUMBER(3)
+ S2                                                 NUMBER(3)
+ S3                                                 NUMBER(3)
+ TOTAL                                              NUMBER(5)
+ AVG                                                NUMBER(5,2)
+ SQL> insert into sstudent values(&regno,'&sname','&grp','&emailid',&phno);
+Enter value for regno: 101
+Enter value for sname: durga
+Enter value for grp: cse
+Enter value for emailid: sivadurgasammangi@gmail.com
+Enter value for phno: 9010948263
+old   1: insert into sstudent values(&regno,'&sname','&grp','&emailid',&phno)
+new   1: insert into sstudent values(101,'durga','cse','sivadurgasammangi@gmail.com',9010948263)
+
+1 row created.
+SQL> select * from sstudent;
+
+     REGNO SNAME                          GRP        EMAILID                              PHNO
+---------- ------------------------------ ---------- ------------------------------ ----------
+       101 durga                          cse        sivadurgasammangi@gmail.com    9010948263
+       102 siva                           mscs       siva.durga@gmail.com           9000951699
+       103 satish                         mpcs       bonthu.satish@gmail.com        8309520322
+       104 yashika                        mecs       yashika@gmail.com              8309520322
+       105 lakshmi                        dscs       lakshmi@gmail.com              9177075770
+       106 khavinya                       mpc        khavi.khavinya@gmail.com       9010735578
+       107 ramana                         mbc        ramana.s@gmail.com             9505466206
+       108 srinu                          mecs       srinus@gmail.com               6309520322
+       109 kavya                          mecs       kavyas@gmail.com               9989250908
+       110 siri                           mpcs       sirisirisha@gmail.com          9010543378
+
+10 rows selected.
+
+SQL> insert into exam(regno,s1,s2,s3)values(&regno ,&s1,&s2,&s3);
+Enter value for regno: 101
+Enter value for s1: 60
+Enter value for s2: 70
+Enter value for s3: 80
+old   1: insert into exam(regno,s1,s2,s3)values(&regno ,&s1,&s2,&s3)
+new   1: insert into exam(regno,s1,s2,s3)values(101 ,60,70,80)
+
+1 row created.
+SQL> select * from exam;
+
+     REGNO         S1         S2         S3      TOTAL        AVG
+---------- ---------- ---------- ---------- ---------- ----------
+       101         60         70         80
+       102         70         80         90
+       103         60         50         80
+       104         80         69         79
+       105         67         89         87
+       106         77         69         78
+       107         56         75         86
+       108         88         60         80
+       109         86         74         83
+       110         72         81         90
+
+10 rows selected.
+
+SQL> update exam set total=s1+s2+s3 ,avg=(s1+s2+s3)/3;
+
+10 rows updated.
+
+SQL> select * from exam;
+
+     REGNO         S1         S2         S3      TOTAL        AVG
+---------- ---------- ---------- ---------- ---------- ----------
+       101         60         70         80        210         70
+       102         70         80         90        240         80
+       103         60         50         80        190      63.33
+       104         80         69         79        228         76
+       105         67         89         87        243         81
+       106         77         69         78        224      74.67
+       107         56         75         86        217      72.33
+       108         88         60         80        228         76
+       109         86         74         83        243         81
+       110         72         81         90        243         81
+
+10 rows selected.
