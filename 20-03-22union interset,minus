@@ -1,0 +1,102 @@
+SQL>  create table sstudent(sno number(6),sname varchar(20),math number(4),phy number(3),cs number(4),total number(7),avg number(10,2));
+
+Table created.
+
+SQL> create table stud_details(sno number(6),sname varchar(20),mat number(3),phy number(3),cs number(3),total number(7),avg number(10,2));
+
+Table created.
+SQL> insert into sstudent(sno,sname,math,phy,cs) values(&sno,'&sname',&math,&phy,&cs);
+Enter value for sno: 101
+Enter value for sname: durga
+Enter value for math: 60
+Enter value for phy: 70
+Enter value for cs: 80
+old   1: insert into sstudent(sno,sname,math,phy,cs) values(&sno,'&sname',&math,&phy,&cs)
+new   1: insert into sstudent(sno,sname,math,phy,cs) values(101,'durga',60,70,80)
+
+1 row created.
+SQL> select * from sstudent;
+
+       SNO SNAME                      MATH        PHY         CS      TOTAL        AVG
+---------- -------------------- ---------- ---------- ---------- ---------- ----------
+       101 durga                        60         70         80
+       102 siva                         70         80         90
+       103 sree                         80         60         70
+       104 srinu                        70         80         90
+       105 uma                          50         70         97
+
+SQL>  update sstudent set total=math+phy+cs,avg=(math+phy+cs)/3;
+
+5 rows updated.
+
+SQL> select * from sstudent;
+
+       SNO SNAME                      MATH        PHY         CS      TOTAL        AVG
+---------- -------------------- ---------- ---------- ---------- ---------- ----------
+       101 durga                        60         70         80        210         70
+       102 siva                         70         80         90        240         80
+       103 sree                         80         60         70        210         70
+       104 srinu                        70         80         90        240         80
+       105 uma                          50         70         97        217      72.33
+SQL>  insert into stud_details(sno,sname,mat,phy,cs) values(&sno,'&sname',&mat,&phy,&cs);
+Enter value for sno: 101
+Enter value for sname: durga
+Enter value for mat: 50
+Enter value for phy: 70
+Enter value for cs: 80
+old   1:  insert into stud_details(sno,sname,mat,phy,cs) values(&sno,'&sname',&mat,&phy,&cs)
+new   1:  insert into stud_details(sno,sname,mat,phy,cs) values(101,'durga',50,70,80)
+
+1 row created.
+
+SQL> /
+SQL> select * from stud_details;
+
+       SNO SNAME                       MAT        PHY         CS      TOTAL        AVG
+---------- -------------------- ---------- ---------- ---------- ---------- ----------
+       101 durga                        50         70         80
+       102 siva                         76         87         98
+       104 yashika                      60         70         80
+       105 satish                       80         68         87
+
+SQL> update stud_details set total=mat+phy+cs ,avg=(mat+phy+cs)/3;
+
+4 rows updated.
+
+SQL> select * from stud_details;
+
+       SNO SNAME                       MAT        PHY         CS      TOTAL        AVG
+---------- -------------------- ---------- ---------- ---------- ---------- ----------
+       101 durga                        50         70         80        200      66.67
+       102 siva                         76         87         98        261         87
+       104 yashika                      60         70         80        210         70
+       105 satish                       80         68         87        235      78.33
+
+SQL>  select * from sstudent union select * from stud_details;
+
+       SNO SNAME                      MATH        PHY         CS      TOTAL        AVG
+---------- -------------------- ---------- ---------- ---------- ---------- ----------
+       101 durga                        50         70         80        200      66.67
+       101 durga                        60         70         80        210         70
+       102 siva                         70         80         90        240         80
+       102 siva                         76         87         98        261         87
+       103 sree                         80         60         70        210         70
+       104 srinu                        70         80         90        240         80
+       104 yashika                      60         70         80        210         70
+       105 satish                       80         68         87        235      78.33
+       105 uma                          50         70         97        217      72.33
+
+9 rows selected.
+SQL>  select * from sstudent intersect select * from stud_details;
+
+no rows selected
+
+SQL>  select * from sstudent minus select * from stud_details;
+
+       SNO SNAME                      MATH        PHY         CS      TOTAL        AVG
+---------- -------------------- ---------- ---------- ---------- ---------- ----------
+       101 durga                        60         70         80        210         70
+       102 siva                         70         80         90        240         80
+       103 sree                         80         60         70        210         70
+       104 srinu                        70         80         90        240         80
+       105 uma                          50         70         97        217      72.33
