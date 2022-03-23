@@ -1,0 +1,63 @@
+SQL> create table emp(empno number(5),empname varchar(25),empdesig varchar(25),empsal number(10));
+
+Table created.
+
+SQL> insert into emp values(&empno,'&empname','&empdesig',&empsal);
+Enter value for empno: 101
+Enter value for empname: durga
+Enter value for empdesig: software
+Enter value for empsal: 50000
+old   1: insert into emp values(&empno,'&empname','&empdesig',&empsal)
+new   1: insert into emp values(101,'durga','software',50000)
+
+1 row created.
+
+SQL> /
+Enter value for empno: 102
+Enter value for empname: siva
+Enter value for empdesig: hardware
+Enter value for empsal: 45000
+old   1: insert into emp values(&empno,'&empname','&empdesig',&empsal)
+new   1: insert into emp values(102,'siva','hardware',45000)
+
+1 row created.
+
+SQL> /
+Enter value for empno: 103
+Enter value for empname: yashika
+Enter value for empdesig: manager
+Enter value for empsal: 55000
+old   1: insert into emp values(&empno,'&empname','&empdesig',&empsal)
+new   1: insert into emp values(103,'yashika','manager',55000)
+
+1 row created.
+
+SQL> /
+Enter value for empno: 104
+Enter value for empname: satish
+Enter value for empdesig:  bpo
+Enter value for empsal: 25000
+old   1: insert into emp values(&empno,'&empname','&empdesig',&empsal)
+new   1: insert into emp values(104,'satish',' bpo',25000)
+
+1 row created.
+
+SQL> /
+Enter value for empno: 105
+Enter value for empname: srinu
+Enter value for empdesig: engineer
+Enter value for empsal: 40000
+old   1: insert into emp values(&empno,'&empname','&empdesig',&empsal)
+new   1: insert into emp values(105,'srinu','engineer',40000)
+
+1 row created.
+
+SQL> select * from emp;
+
+     EMPNO EMPNAME                   EMPDESIG                      EMPSAL
+---------- ------------------------- ------------------------- ----------
+       101 durga                     software                       50000
+       102 siva                      hardware                       45000
+       103 yashika                   manager                        55000
+       104 satish                     bpo                           25000
+       105 srinu                     engineer                       40000
