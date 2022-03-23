@@ -1,0 +1,49 @@
+set serveroutput on
+SQL> declare
+  2  a int;
+  3  begin
+  4  update emp set empsal=empsal+2500 where empsal>=50000;
+  5  if sql%notfound then
+  6  dbms_output.put_line('not updated');
+  7  elsif sql%found then
+  8  a:=sql%rowcount;
+  9  dbms_output.put_line(a||'employee salaries updated');
+ 10  end if;
+ 11  end;
+ 12  /
+2employee salaries updated
+
+PL/SQL procedure successfully completed.
+
+SQL> select *from emp;
+
+     EMPNO EMPNAME                   EMPDESIG                      EMPSAL
+---------- ------------------------- ------------------------- ----------
+       101 durga                     software                       52500
+       102 siva                      hardware                       45000
+       103 yashika                   manager                        60000
+       104 satish                     bpo                           25000
+       105 srinu                     engineer                       40000
+
+SQL> declare
+  2  no emp.empno%type;
+  3  name emp.empname%type;
+  4  sal emp.empsal%type;
+  5  cursor x is select empno,empname,empsal from emp;
+  6  begin
+  7  open x;
+  8  loop
+  9  fetch x into no,name,sal;
+ 10  exit when x%notfound;
+ 11  dbms_output.put_line('emp number='||no||'  emp name='||name||'  emp salary='||sal);
+ 12  end loop;
+ 13  close x;
+ 14  end;
+ 15  /
+emp number=101  emp name=durga  emp salary=52500
+emp number=102  emp name=siva  emp salary=45000
+emp number=103  emp name=yashika  emp salary=60000
+emp number=104  emp name=satish  emp salary=25000
+emp number=105  emp name=srinu  emp salary=40000
+
+PL/SQL procedure successfully completed.
