@@ -1,0 +1,79 @@
+SQL> create table employee(eno number(10),ename varchar(25),design varchar(25),dob date,doj date,salary number(10));
+
+Table created.
+SQL> insert into employee values(&eno,'&ename','&desig','&dob','&doj',&salary);
+Enter value for eno: 101
+Enter value for ename: durga
+Enter value for desig: software
+Enter value for dob: 07-sep-1996
+Enter value for doj: 12-feb-2019
+Enter value for salary: 20000
+old   1: insert into employee values(&eno,'&ename','&desig','&dob','&doj',&salary)
+new   1: insert into employee values(101,'durga','software','07-sep-1996','12-feb-2019',20000)
+
+1 row created.
+
+SQL> /
+Enter value for eno: 102
+Enter value for ename: satish
+Enter value for desig: hardware
+Enter value for dob: 06-may-1998
+Enter value for doj: 15-apr-2016
+Enter value for salary: 17000
+old   1: insert into employee values(&eno,'&ename','&desig','&dob','&doj',&salary)
+new   1: insert into employee values(102,'satish','hardware','06-may-1998','15-apr-2016',17000)
+
+1 row created.
+
+SQL> /
+Enter value for eno: 103
+Enter value for ename: yashika
+Enter value for desig: manager
+Enter value for dob: 27-mar-1999
+Enter value for doj: 03-aug-2002
+Enter value for salary: 23000
+old   1: insert into employee values(&eno,'&ename','&desig','&dob','&doj',&salary)
+new   1: insert into employee values(103,'yashika','manager','27-mar-1999','03-aug-2002',23000)
+
+1 row created.
+
+SQL> /
+Enter value for eno: 104
+Enter value for ename: lakshmi
+Enter value for desig: software
+Enter value for dob: 05-jan-2000
+Enter value for doj: 09-apr-2029
+Enter value for salary: 50000
+old   1: insert into employee values(&eno,'&ename','&desig','&dob','&doj',&salary)
+new   1: insert into employee values(104,'lakshmi','software','05-jan-2000','09-apr-2029',50000)
+
+1 row created.
+SQL> select * from employee;
+
+       ENO ENAME                     DESIGN                    DOB       DOJ           SALARY
+---------- ------------------------- ------------------------- --------- --------- ----------
+       101 durga                     software                  07-SEP-96 12-FEB-19      20000
+       102 satish                    hardware                  06-MAY-98 15-APR-16      17000
+       103 yashika                   manager                   27-MAR-99 03-AUG-02      23000
+       104 lakshmi                   software                  05-JAN-00 09-APR-29      50000
+       105 srinu                     engineer                  15-JUL-94 23-MAR-17      19000
+
+SQL> select eno,ename,trunc((sysdate-to_date(doj))/365.25,0) as experience from employee;
+
+       ENO ENAME                     EXPERIENCE
+---------- ------------------------- ----------
+       101 durga                              3
+       102 satish                             5
+       103 yashika                           19
+       104 lakshmi                           -7
+       105 srinu                              5
+
+SQL> select eno,ename,trunc((sysdate-to_date(dob))/365.25,0) as age from employee;
+
+       ENO ENAME                            AGE
+---------- ------------------------- ----------
+       101 durga                             25
+       102 satish                            23
+       103 yashika                           22
+       104 lakshmi                           22
+       105 srinu                             27
